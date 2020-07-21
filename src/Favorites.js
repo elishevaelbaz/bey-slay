@@ -1,27 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import BeyCard from "./BeyCard.js"
 
-export default class Favorites extends Component {
+const Favorites = (props) => {
 
-  renderBeys = () => {
-    return this.props.beys.map(bey => {
+  const renderBeys = () => {
+    return props.beys.map(bey => {
       return <BeyCard key={bey.id} 
         id={bey.id} 
         name={bey.name} 
         img={bey.img}
         favorite={bey.favorite}
-        updateFavorite={this.props.updateFavorite}
+        updateFavorite={props.updateFavorite}
       />
     })
   }
 
-  render() {
-    console.log("favorite props:", this.props)
-    return (
-      <div className="favorites">
-        <h1>BEYVORITES</h1>
-        {this.renderBeys()}
-      </div>
-    );
-  }
+  console.log("favorite props:", props)
+  return (
+    <div className="favorites">
+      <h1>BEYVORITES</h1>
+      {renderBeys()}
+    </div>
+  );
+  
 }
+
+export default Favorites;

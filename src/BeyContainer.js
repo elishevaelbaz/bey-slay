@@ -1,25 +1,26 @@
 import React from "react";
 import BeyCard from "./BeyCard.js"
 
-export default class BeyContainer extends React.Component {
+ const BeyContainer = (props) => {
 
-  renderBeys = () => {
-    return this.props.beys.map(bey => {
+  const renderBeys = () => {
+    return props.beys.map(bey => {
       return <BeyCard key={bey.id} 
         id={bey.id} 
         name={bey.name} 
         img={bey.img}
         favorite={bey.favorite}
-        updateFavorite={this.props.updateFavorite}
+        updateFavorite={props.updateFavorite}
       />
     })
   }
-  render() {
-    return (
-      <div className="bey-container">
-        <h1>BEYDEX</h1>
-        {this.renderBeys()}
-      </div>
-    );
-  }
+ 
+  return (
+    <div className="bey-container">
+      <h1>BEYDEX</h1>
+      {renderBeys()}
+    </div>
+  );
 }
+
+export default BeyContainer
