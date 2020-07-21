@@ -1,10 +1,20 @@
 import React from "react";
 
-export default const BeyCard = () => {
+const BeyCard = (props) => {
+  const {name, id, img, updateFavorite} = props
+
+  // const handleClick = () => {
+  //   console.log(id)
+  //   console.log(props)
+  //   updateFavorite(id)
+  // }
   return (
-    <div className='bey-card'>
-      <h3>{/*Bey name goes here*/}</h3>
-      {/*image tag goes here*/}
+    
+    <div className='bey-card' onClick={() => updateFavorite(id)}>
+      <h3>{name}</h3>
+      <img src={img} />
     </div>
   );
 };
+
+export default BeyCard;
